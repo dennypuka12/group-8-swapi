@@ -2,6 +2,11 @@ let nameH1;
 let climateSpan;
 let waterSpan;
 let diameterSpan;
+let gravitySpan;
+let orbitalSpan;
+let rotationSpan;
+let populationSpan;
+let terrainSpan;
 let filmsDiv;
 let filmsUl;
 let charactersUl;
@@ -16,6 +21,11 @@ addEventListener('DOMContentLoaded', () => {
   climateSpan = document.querySelector('span#climate');
   waterSpan = document.querySelector('span#water');
   diameterSpan = document.querySelector('span#diameter');
+  terrainSpan = document.querySelector('span#terrain');
+  orbitalSpan = document.querySelector('span#orbital');
+  rotationSpan = document.querySelector('span#rotation');
+  gravitySpan = document.querySelector('span#gravity');
+  populationSpan = document.querySelector('span#population');
   const sp = new URLSearchParams(window.location.search)
   const id = sp.get('id')
   getPlanet(id)
@@ -60,6 +70,11 @@ const renderPlanet = planet => {
   climateSpan.textContent = planet?.climate;
   waterSpan.textContent = planet?.surface_water;
   diameterSpan.textContent = planet?.diameter;
+  rotationSpan.textContent = planet?.rotation_period;
+  orbitalSpan.textContent = planet?.orbital_period;
+  gravitySpan.textContent = planet?.gravity;
+  terrainSpan.textContent = planet?.terrain;
+  populationSpan.textContent = planet?.population;
   const charactersLis = planet?.characters?.map(character => `<li><a href="/character.html?id=${character.id}">${character.name}</li>`)
   const filmsLis = planet?.films?.map(film => `<li><a href="/film.html?id=${film.id}">${film.title}</li>`)
   filmsUl.innerHTML = filmsLis.join("");
