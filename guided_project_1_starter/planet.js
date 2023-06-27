@@ -3,13 +3,15 @@ let climateSpan;
 let waterSpan;
 let diameterSpan;
 let filmsDiv;
+let filmsUl;
+let charactersUl;
 let planetDiv;
 const baseUrl = `https://swapi2.azurewebsites.net/api`;
 
 // Runs on page load
 addEventListener('DOMContentLoaded', () => {
   nameH1 = document.querySelector('h1#name');
-  characterUl= document.querySelector('#characters>ul');
+  charactersUl= document.querySelector('#characters>ul');
   filmsUl = document.querySelector('#films>ul');
   climateSpan = document.querySelector('span#climate');
   waterSpan = document.querySelector('span#water');
@@ -29,7 +31,7 @@ async function getPlanet(id) {
   catch (ex) {
     console.error(`Error reading character ${id} data.`, ex.message);
   }
-  renderPlanet(character);
+  renderPlanet(planet);
 
 }
 async function fetchPlanet(id) {
